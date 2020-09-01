@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Conclusion - Modelling the double switch pattern in GRN</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="..">Modelling the double switch pattern in GRN</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../implementation/">Implementation</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../analysis/">Analysis</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Conclusion</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../analysis/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#bibliography">Bibliography</a></li>
+            <li class="second-level"><a href="#barabasi-et-al-2003">Barabasi et al, 2003</a></li>
+                
+            <li class="second-level"><a href="#larremore-et-al-2011">Larremore et al, 2011</a></li>
+                
+            <li class="second-level"><a href="#fronczak-et-al-2006">Fronczak et al, 2006</a></li>
+                
+            <li class="second-level"><a href="#massobrio-et-al-2015">Massobrio et al, 2015</a></li>
+                
+            <li class="second-level"><a href="#migliano-et-al-2020">Migliano et al, 2020</a></li>
+                
+            <li class="second-level"><a href="#chialvo-et-al-2010">Chialvo et al, 2010</a></li>
+                
+            <li class="second-level"><a href="#friston-et-al-2012">Friston et al, 2012</a></li>
+                
+            <li class="second-level"><a href="#milo-et-al-2002">Milo et al, 2002</a></li>
+                
+            <li class="second-level"><a href="#herbach-et-al-2017">Herbach et al, 2017</a></li>
+                
+            <li class="second-level"><a href="#gillespie-1976">Gillespie, 1976</a></li>
+                
+            <li class="second-level"><a href="#vinuelas-et-al-2013">Viñuelas et al, 2013</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>In this study, I have studied extensively the ability of the double toggle switch pattern to implement memory in gene regulatory networks. I have implemented computationally an ecologically realist model of the pattern, introducted a discretised model of its functional dynamics, and showed that the absence of scale separation between functional dynamics and expression noise in ecological settings did not constrain the system's ability to discriminate information and retain it through time. Further study could deepen the discretised model I have introduced, for exemple by investigating whether a discretised scale exists where the system can be modelled as Markovian.</p>
+<h2 id="bibliography">Bibliography</h2>
+<h5 id="barabasi-et-al-2003">Barabasi et al, 2003</h5>
+<p>Barabàsi, Albert-Làsilò, and Eric Bonabeau. 2003. ‘Scale-Free Networks’. Scientific American 288(5): 60–69.</p>
+<h5 id="larremore-et-al-2011">Larremore et al, 2011</h5>
+<p>Larremore, Daniel B., Woodrow L. Shew, and Juan G. Restrepo. 2011. ‘Predicting Criticality and Dynamic Range in Complex Networks: Effects of Topology’. Physical Review Letters 106(5): 058101.</p>
+<h5 id="fronczak-et-al-2006">Fronczak et al, 2006</h5>
+<p>Fronczak, Piotr, Agata Fronczak, and Janusz A. Hołyst. 2006. ‘Self-Organized Criticality and Coevolution of Network Structure and Dynamics’. Physical Review E 73(4): 046117.</p>
+<h5 id="massobrio-et-al-2015">Massobrio et al, 2015</h5>
+<p>Massobrio, Paolo, Valentina Pasquale, and Sergio Martinoia. 2015. ‘Self-Organized Criticality in Cortical Assemblies Occurs in Concurrent Scale-Free and Small-World Networks’. Scientific Reports 5(1): 10578.</p>
+<h5 id="migliano-et-al-2020">Migliano et al, 2020</h5>
+<p>Migliano, Andrea B. et al. 2020. ‘Hunter-Gatherer Multilevel Sociality Accelerates Cumulative Cultural Evolution’. Science Advances 6(9): eaax5913.</p>
+<h5 id="chialvo-et-al-2010">Chialvo et al, 2010</h5>
+<p>Chialvo, Dante R. 2010. ‘Emergent Complex Neural Dynamics’. Nature Physics 6(10): 744–50.</p>
+<h5 id="friston-et-al-2012">Friston et al, 2012</h5>
+<p>Karl, Friston. 2012. ‘A Free Energy Principle for Biological Systems’. Entropy 14(11): 2100–2121.</p>
+<h5 id="milo-et-al-2002">Milo et al, 2002</h5>
+<p>Milo, R. et al. 2002. ‘Network Motifs: Simple Building Blocks of Complex Networks’. Science 298(5594): 824–27.</p>
+<h5 id="herbach-et-al-2017">Herbach et al, 2017</h5>
+<p>Herbach, Ulysse, Arnaud Bonnaffoux, Thibault Espinasse, and Olivier Gandrillon. 2017. ‘Inferring Gene Regulatory Networks from Single-Cell Data: A Mechanistic Approach’. BMC Systems Biology 11(1): 105.</p>
+<h5 id="gillespie-1976">Gillespie, 1976</h5>
+<p>Gillespie, Daniel. 1976. ‘A General Method for Numerically Simulating the Stochastic Time Evolution of Coupled Chemical Reaction’. Journal of Computational Physics 22: 403–34.</p>
+<h5 id="vinuelas-et-al-2013">Viñuelas et al, 2013</h5>
+<p>Viñuelas, José et al. 2013. ‘Quantifying the Contribution of Chromatin Dynamics to Stochastic Gene Expression Reveals Long, Locus-Dependent Periods between Transcriptional Bursts’. BMC Biology 11(1): 15.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+        </p>
+
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
