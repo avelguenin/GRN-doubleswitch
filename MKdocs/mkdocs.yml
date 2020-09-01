@@ -1,0 +1,11 @@
+site_name: Modelling the double switch pattern in GRN
+
+theme:
+  name: null
+  custom_dir: 'cinder'
+
+nav:
+  - Introduction: index.md
+  - Implementation: implementation.md
+  - Analysis: analysis.md
+  - Conclusion: conclusion.md

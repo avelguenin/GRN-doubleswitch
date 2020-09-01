@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Analysis - Modelling the double switch pattern in GRN</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            <a class="navbar-brand" href="..">Modelling the double switch pattern in GRN</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Introduction</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../implementation/">Implementation</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Analysis</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../conclusion/">Conclusion</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../implementation/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="next" href="../conclusion/">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#analysing-the-memory-properties-of-the-grn-double-toggle-switch">Analysing the memory properties of the GRN double toggle switch</a></li>
+            <li class="second-level"><a href="#bistability">Bistability</a></li>
+                
+            <li class="second-level"><a href="#noise-susceptibility">Noise susceptibility</a></li>
+                
+            <li class="second-level"><a href="#equilibration">Equilibration</a></li>
+                
+            <li class="second-level"><a href="#dimensionality">Dimensionality</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<h2 id="analysing-the-memory-properties-of-the-grn-double-toggle-switch">Analysing the memory properties of the GRN double toggle switch</h2>
+<h3 id="bistability">Bistability</h3>
+<p>The very first condition to the implementation of memory is the ability to retain different states through time. I simulate on the left panel below the dynamics of the double toggle switch for symmetric self-activation strength, while forcing the (+,-,+) state from 0h to 100h then the (-,+,-) state from 500 to 600h in simulation time.</p>
+<p><img alt="dynamics-bistability" src="../img/dynamics-bistability.png" /></p>
+<p>As is visible, the system is able to retain the (+,-,+) state without external stimuli, but not the (-,+,-) state. This is because, with parameter at ecological levels (as specified in <a href="../conclusion#Herbach et al, 2017">Herbach et al, 2017</a>), endogenous variations of the central gene activation are strong enough to inhibit lateral genes. In other words, there is no scale separation in ecological settings, and the functional dynamics of the system cannot be decoupled from expression noise. Rather than tweaking expression parameters at the expense of biological meaning, I could implement bistability by strengthening central gene self-activation, as shown in the right panel above.</p>
+<h3 id="noise-susceptibility">Noise susceptibility</h3>
+<p>It is necessary for implementing memory that the system be able to change state if and only if it is exposed to relevant stimuli. I tested this condition by testing the system's ability to withstand weak stimuli but constant stimuli, and transcient but strong stimuli.</p>
+<p><img alt="dynamics-susceptibility" src="../img/dynamics-susceptibility.png" /></p>
+<p>The results suggest that a state transition may be triggered by a transcient stimuli if and only if it is strong enough, and by a weak stimuli if and only in it is long enough. It follows that, even in the absence of scale separation, the double toggle switch is able to discriminate and retain relevant information.</p>
+<h3 id="equilibration">Equilibration</h3>
+<p>While not central to the function of memory, it is relevant to ask whether the system has the same ability to retain different informations through time. I therefore plotted in the left panel below the heatmap of protein population for central and lateral genes while exposing the system to periodic forced transition.</p>
+<p><img alt="dynamics-ergodicity" src="../img/dynamics-ergodicity.png" /></p>
+<p>It is manifest that the system spends more time in the (-,+,-) state, while it is exposed to a symmetrical stimuli. This could easily be adjusted by lowering central gene self-activation, as presented in the right panel above.</p>
+<h3 id="dimensionality">Dimensionality</h3>
+<p>It is also relevant to ask whether the system follows other dynamics in addition to the two-state memory it was expected to implement. I therefore plotted the heatmap of the activation level for central and lateral genes for the same periodic forced transition used to study equilibration.</p>
+<p><img alt="dynamics-dimensionality" src="../img/dynamics-dimensionality.png" /></p>
+<p>While the activation pattern is not symetric, it is clear it follows an oblique line in log space. Its activity is therefore one-dimensional, and there are no dynamics relevant to the system beside those of its two-state memory.</p></div>
+        
+        
+    </div>
+
+    <footer class="col-md-12 text-center">
+        
+        <hr>
+        <p>
+        <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+        </p>
+
+        
+        
+    </footer>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
